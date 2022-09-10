@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src --ext .ts --ext .tsx"
   },
   "dependencies": {
     "@types/react-helmet": "^6.1.5",
