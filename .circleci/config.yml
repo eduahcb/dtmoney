@@ -2,13 +2,13 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.2
+  codecov: codecov/codecov@3.2.2
 
 defaults: &defaults
   docker:
     - image: cimg/node:16.17.0
   environment:
     CC_TEST_REPORTER_ID: b22e18c5eb05f96e7cac6fef6742dab427196fca8b339cb3a9235dae6d3c5420
-
 jobs:
   setup:
     <<: *defaults
@@ -19,52 +19,62 @@ jobs:
           install-yarn: true
       - node/install-packages:
           pkg-manager: yarn
-      
+
       - run:
           name: "yarn version"
           command: yarn --version
 
   lint:
     <<: *defaults
-
+    
     steps:
       - checkout
-
+      
       - node/install-packages:
           pkg-manager: yarn
 
       - run:
           name: "run lint"
           command: yarn lint
-
   test:
     <<: *defaults
-    
+
     steps:
       - checkout
 
       - node/install-packages:
           pkg-manager: yarn
-
+              
       - run:
           name: "run test"
           command: yarn coverage
+
+      - run:
+          name: "setup code climate test-reporter"
+          command: |
+            # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
 
       - run:
           name: "upload tests coverages"
           command: |
             ./cc-test-reporter before-build
             ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?
-
+          
   build:
-      <<: *defaults
+    <<: *defaults
+    
+    steps:
+      - checkout
+      
+      - node/install-packages:
+          pkg-manager: yarn
 
-      steps:
-        - checkout
+      - run:
+          name: "run build"
+          command: yarn build
 
-        - run:
-            name: "run build"
-            command: yarn build
 workflows:
   ci:
     jobs:
