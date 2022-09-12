@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Brand component > match snapshot 1`] = `
+<DocumentFragment>
+  <img
+    alt="dt money logo"
+    src="/src/assets/logo.svg"
+  />
+</DocumentFragment>
+`;
