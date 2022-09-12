@@ -11,7 +11,7 @@ const Style = createGlobalStyle`
     --red: #e62e4d;
     --green: #33cc95;
     --blue: #5429cc;
-    --bue-light: #6933ff;
+    --blue-light: #6933ff;
   }
   
   html {
