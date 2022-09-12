@@ -2,11 +2,34 @@
 
 exports[`Header > match snapshot 1`] = `
 <DocumentFragment>
-  <header
-    class="sc-bczRLJ juBdKA"
+  .c0 {
+  background-color: var(--blue);
+  height: 124px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+<header
+    class="c0"
   >
     <div
-      class="sc-gsnTZi edsGVA"
+      class="c1"
     >
       <p>
         this is a text
