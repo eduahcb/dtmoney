@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`Header > match snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-bczRLJ juBdKA"
+  >
+    <div
+      class="sc-gsnTZi edsGVA"
+    >
+      <p>
+        this is a text
+      </p>
+    </div>
+  </header>
+</DocumentFragment>
+`;
