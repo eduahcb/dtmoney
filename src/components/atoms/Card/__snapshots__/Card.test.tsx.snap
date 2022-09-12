@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`Card component > to match snapshot 1`] = `
+<DocumentFragment>
+  .c0 {
+  background-color: var(--shape-principal);
+  padding: 24px 32px;
+  border-radius: 4px;
+}
+
+<div
+    class="c0"
+  >
+    <p>
+      this is a text
+    </p>
+  </div>
+</DocumentFragment>
+`;
