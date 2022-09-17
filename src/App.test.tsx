@@ -4,9 +4,9 @@ import { render, screen } from '@testing-library/react'
 import App from './App'
 
 describe('App component', () => {
-  test('renders text', () => {
+  test('renders the brand', () => {
     render(<App />)
 
-    expect(screen.getByText('Hello World')).toBeInTheDocument()
+    expect(screen.getByAltText('dt money logo')).toBeInTheDocument()
   })
 })

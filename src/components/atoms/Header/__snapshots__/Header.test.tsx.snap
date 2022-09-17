@@ -4,7 +4,6 @@ exports[`Header > match snapshot 1`] = `
 <DocumentFragment>
   .c0 {
   background-color: var(--blue);
-  height: 124px;
 }
 
 .c1 {
@@ -22,7 +21,7 @@ exports[`Header > match snapshot 1`] = `
   justify-content: space-between;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 32px 16px;
+  padding: 32px 16px 192px;
 }
 
 <header

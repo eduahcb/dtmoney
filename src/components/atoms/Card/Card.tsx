@@ -1,13 +1,13 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactElement, ReactNode, HtmlHTMLAttributes } from 'react'
 
 import { Card as StyledCard } from './style'
 
-type CardProps = {
+type CardProps = HtmlHTMLAttributes<HTMLElement> & {
   children: ReactNode
 }
 
-export const Card = ({ children }: CardProps): ReactElement => {
+export const Card = ({ children, className }: CardProps): ReactElement => {
   return (
-    <StyledCard>{ children }</StyledCard>
+    <StyledCard className={className}>{ children }</StyledCard>
   )
 }

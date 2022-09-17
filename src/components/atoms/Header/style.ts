@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   background-color: var(--blue);
-  height: 124px;
 `
 
 export const Content = styled.div`
@@ -13,5 +12,5 @@ export const Content = styled.div`
   max-width: 1120px;
   margin: 0 auto;
   
-  padding: 32px 16px;
+  padding: 32px 16px 192px;
 `

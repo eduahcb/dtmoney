@@ -1,13 +1,13 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactElement, ReactNode, TdHTMLAttributes } from 'react'
 
 import { TableTd as StyleTableTd } from './style'
 
-type TableTdProps = {
+type TableTdProps = TdHTMLAttributes<HTMLTableCellElement> & {
   children: ReactNode
 }
 
-export const TableTd = ({ children }: TableTdProps): ReactElement => {
+export const TableTd = ({ children, className }: TableTdProps): ReactElement => {
   return (
-    <StyleTableTd>{ children }</StyleTableTd>
+    <StyleTableTd className={className}>{ children }</StyleTableTd>
   )
 }
