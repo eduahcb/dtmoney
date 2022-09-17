@@ -23,6 +23,7 @@
         "testing-library"
     ],
     "rules": {
-       "@typescript-eslint/consistent-type-definitions": "off"
+       "@typescript-eslint/consistent-type-definitions": "off",
+        "@typescript-eslint/return-await": "off"
     }
 }
