@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { createGlobalStyle } from 'styled-components'
-import { Helmet } from 'react-helmet'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 const Style = createGlobalStyle`
   :root {
@@ -58,13 +58,13 @@ const Style = createGlobalStyle`
 `
 export function GlobalStyle (): ReactElement {
   return (
-    <>
+    <HelmetProvider>
       <Style />
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;500;700&family=Merriweather:wght@400;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet"></link>
       </Helmet>
-    </>
+    </HelmetProvider>
   )
 }
