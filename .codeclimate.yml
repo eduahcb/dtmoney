@@ -3,6 +3,8 @@ plugins:
   eslint:
     enabled: true
     channel: "eslint-8"
+  duplication:
+    enabled: true
 checks:
   argument-count:
     config:
