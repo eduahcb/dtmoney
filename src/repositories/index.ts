@@ -1,1 +1,1 @@
-export { TransactionRepository } from './transaction'
+export * from './transaction'
