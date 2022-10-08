@@ -1,11 +1,8 @@
-import axios from 'axios'
 
-import { AxiosClient } from 'http/AxiosClient'
+import { AxiosClient } from 'http-client'
 import { TransactionRepository } from 'repositories'
 
-const client = new AxiosClient(axios.create({
-  baseURL: 'http://localhost:3000/api/'
-}))
+const client = new AxiosClient('http://localhost:3000/api/')
 
 const transaction = new TransactionRepository(client)
 

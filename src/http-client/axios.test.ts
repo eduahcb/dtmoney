@@ -31,6 +31,17 @@ describe('AxiosClient', () => {
     expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/transactions')
   })
 
+  test('should reject axios get method', async () => {
+    vi.mocked(axios.create).mockReturnThis()
+    vi.spyOn(axios, 'get').mockRejectedValue({})
+
+    client = new AxiosClient()
+
+    const handle = async (): Promise<any> => client.get('http://localhost:3000/transactions')
+
+    await expect(handle).rejects.toThrow()
+  })
+
   test('should axios post method', async () => {
     vi.mocked(axios.create).mockReturnThis()
     vi.spyOn(axios, 'post').mockResolvedValue({})
@@ -48,5 +59,21 @@ describe('AxiosClient', () => {
       name: 'nathan',
       email: 'nathan@test.com'
     })
+  })
+
+  test('should reject axios post method', async () => {
+    vi.mocked(axios.create).mockReturnThis()
+    vi.spyOn(axios, 'post').mockRejectedValue({})
+
+    const payload = {
+      name: 'nathan',
+      email: 'nathan@test.com'
+    }
+
+    client = new AxiosClient()
+
+    const handle = async (): Promise<any> => client.post('http://localhost:3000/transactions', payload)
+
+    await expect(handle).rejects.toThrow()
   })
 })

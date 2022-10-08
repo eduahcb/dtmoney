@@ -11,8 +11,11 @@ export default defineConfig({
     setupFiles: path.join(__dirname, 'src', 'setupTests.ts'),
     environment: 'jsdom',
     coverage: {
-      reporter: ['text', 'lcov', 'html']
-    }
+      reporter: ['text', 'lcov', 'html'],
+      exclude: [
+        '**/src/**/in-memory/*'
+      ]
+    },
   },
   plugins: [
     tsconfigPaths()

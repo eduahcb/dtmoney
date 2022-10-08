@@ -1,27 +1,22 @@
-import axios from 'axios'
-
-import { AxiosClient } from 'http-client/axios'
+import { ClientInMemory } from './in-memory/client'
 import { TransactionRepository } from './transaction'
 
 import mockedTransactions from 'fixtures/transaction.json'
 
-vi.mock('axios')
-
 describe('TransactionRepository', () => {
-  let client: AxiosClient
+  let client: ClientInMemory
 
   beforeAll(() => {
-    vi.mocked(axios.create).mockReturnThis()
-    client = new AxiosClient()
+    client = new ClientInMemory()
   })
 
   afterEach(() => {
-    vi.spyOn(axios, 'get').mockClear()
+    vi.spyOn(client, 'get').mockClear()
   })
 
   describe('getAll', () => {
     test('should return a empty array', async () => {
-      vi.spyOn(axios, 'get').mockResolvedValue({ data: { transactions: [] }, status: 200 })
+      vi.spyOn(client, 'get').mockResolvedValue({ data: { transactions: [] }, status: 200 })
 
       const transactionRepository = new TransactionRepository(client)
 
@@ -31,7 +26,7 @@ describe('TransactionRepository', () => {
     })
 
     test('should return an array with one user', async () => {
-      vi.spyOn(axios, 'get').mockResolvedValue({
+      vi.spyOn(client, 'get').mockResolvedValue({
         data: {
           transactions: [mockedTransactions[0]]
         },
@@ -53,7 +48,7 @@ describe('TransactionRepository', () => {
     })
 
     test('throw a error instance of Error', async () => {
-      vi.spyOn(axios, 'get').mockRejectedValue(new Error('this is a error'))
+      vi.spyOn(client, 'get').mockRejectedValue(new Error('this is a error'))
 
       const transactionRepository = new TransactionRepository(client)
 
