@@ -12,7 +12,7 @@ import { Summary } from './Summary'
 import { TransactionTable } from './TransactionTable'
 
 export const Dashboard = (): ReactElement => {
-  const { data } = useTransactionList()
+  const { data, isError } = useTransactionList()
 
   const summary = useMemo(() => {
     const summaryInitialValue = {
@@ -43,7 +43,9 @@ export const Dashboard = (): ReactElement => {
       </Header>
       <Content>
         <Summary summary={summary}/>
-        <TransactionTable transactions={transactions}/>
+        {
+          !isError && <TransactionTable transactions={transactions}/>
+        }
       </Content>
     </>
   )
