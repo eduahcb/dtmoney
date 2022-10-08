@@ -3,7 +3,7 @@ import { api } from 'services'
 import { Transaction } from 'types/transaction'
 
 export const useTransactionList = (): UseQueryResult<Transaction[], unknown> => {
-  const response = useQuery(['transactions'], async () => await api.transaction.getAll())
+  const response = useQuery(['transactions'], async () => api.transaction.getAll())
 
   return {
     ...response
