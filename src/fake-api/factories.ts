@@ -13,7 +13,7 @@ export const factories = {
       return faker.lorem.word()
     },
     amount () {
-      return faker.commerce.price()
+      return Number(faker.commerce.price())
     },
     createdAt () {
       return faker.date.past()
