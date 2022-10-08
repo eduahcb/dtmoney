@@ -13,7 +13,8 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'lcov', 'html'],
       exclude: [
-        '**/src/**/in-memory/*'
+        '**/src/**/in-memory/*',
+        '**/src/fake-api/**'
       ]
     },
   },
