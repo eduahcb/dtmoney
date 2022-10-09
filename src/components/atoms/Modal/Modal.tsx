@@ -24,8 +24,6 @@ interface ModalSubComponents {
 }
 
 const Modal: FC<ModalProps> & ModalSubComponents = ({ children, isOpen, onClose }: ModalProps): ReactElement => {
-  ModalComponent.setAppElement('#root')
-
   return (
     <ModalComponent
       isOpen={isOpen}

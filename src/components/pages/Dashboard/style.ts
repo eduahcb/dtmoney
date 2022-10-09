@@ -1,6 +1,18 @@
 import styled from 'styled-components'
+
+import { transparentize } from 'polished'
+
 import { Card as CardComponent } from 'components/atoms/Card'
 import { Table } from 'components/molecules/Table'
+import { RadioBox as RadioBoxComponent } from 'components/atoms/RadioBox'
+
+type PriceColumnProps = {
+  type: 'deposit' | 'withdraw'
+}
+
+type RadioBoxProps = {
+  isActive: boolean
+}
 
 export const Content = styled.main`
   max-width: 1120px;
@@ -52,10 +64,32 @@ export const TitleColumn = styled(Table.Td)`
   color: var(--title);
 `
 
-type PriceColumnProps = {
-  type: 'deposit' | 'withdraw'
-}
-
 export const PriceColumn = styled(Table.Td)<PriceColumnProps>`
-  color: ${props => props.type === 'deposit' ? 'var(--green)' : 'var(--red)'}
+  color: ${props => props.type === 'deposit' ? 'var(--green)' : 'var(--red)'};
+`
+
+export const FormGroup = styled.div`
+  width: 100%;
+  margin-bottom: 1rem;
+
+  button {
+    width: 100%;
+    height: 4rem;
+  }
+`
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+
+  margin-bottom: 1rem;
+`
+
+export const RadioBox = styled(RadioBoxComponent)<RadioBoxProps>`
+  background-color: ${({ isActive }) =>
+    isActive
+      ? transparentize(0.9, '#33cc95')
+      : transparentize(0.9, '#e62e4d')
+  };
 `

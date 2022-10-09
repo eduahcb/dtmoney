@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker'
 import { createServer, Server } from 'miragejs'
 
 import { models } from './models'
@@ -21,11 +22,17 @@ export const fakeApi = (environment: 'development' | 'test' = 'development'): Se
         transactions: schema.all('transaction').models
       }))
 
-      // Error
+      this.post('/transactions', (schema, request) => {
+        const transaction = JSON.parse(request.requestBody)
 
-      // this.get('/transactions', (schema) => {
-      //   return new Response(500, {}, { error: 'kkk' })
-      // })
+        transaction.createdAt = faker.date.recent().toISOString()
+
+        const result = schema.create('transaction', transaction)
+
+        return {
+          result
+        }
+      })
     }
   })
 }

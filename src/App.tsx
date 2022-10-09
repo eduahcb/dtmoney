@@ -2,6 +2,8 @@ import React, { lazy, ReactElement } from 'react'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+import Modal from 'react-modal'
+
 import { GlobalStyle } from 'styles/global'
 
 import { Dashboard } from 'components/pages/Dashboard'
@@ -17,6 +19,8 @@ const ReactQueryDevTools = lazy(async () =>
 )
 
 const appModule = import.meta.env.MODE
+
+Modal.setAppElement('#root')
 
 function App (): ReactElement {
   return (

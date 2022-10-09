@@ -21,9 +21,11 @@ export class TransactionRepository {
     }
   }
 
-  async create (user: any): Promise<void> {
+  async create (transaction: any): Promise<void> {
     try {
-      await this.client.post('/transactions', { user })
+      await this.client.post('/transactions', {
+        ...transaction
+      })
     } catch (error: any) {
       return Promise.reject(new Error(error))
     }
