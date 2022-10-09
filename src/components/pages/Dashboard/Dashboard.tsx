@@ -27,7 +27,7 @@ export const Dashboard = (): ReactElement => {
     <>
       <Header>
         <Brand />
-        <Button color='primary' onClick={openModal} >nova transação</Button>
+        <Button color='primary' onClick={openModal}>nova transação</Button>
       </Header>
       <Content>
         <Summary summary={summary}/>

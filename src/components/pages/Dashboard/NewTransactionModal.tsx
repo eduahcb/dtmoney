@@ -44,7 +44,7 @@ export const NewTransactionModal = ({ isOpen, closeModal, createTransaction }: N
 
   return (
     <Modal isOpen={isOpen} onClose={closeModal}>
-      <Modal.Header>Nova transação</Modal.Header>
+      <Modal.Header>Cadastrar transação</Modal.Header>
       <Modal.Content>
 
         <form onSubmit={handleSubmit(handleCreateTransaction)}>
