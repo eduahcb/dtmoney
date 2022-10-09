@@ -1,6 +1,6 @@
-import React, { ReactElement, useMemo } from 'react'
+import React, { ReactElement } from 'react'
 
-import { useTransactionList } from 'hooks'
+import { useGetTransactions } from 'hooks'
 
 import { Header } from 'components/atoms/Header'
 import { Brand } from 'components/atoms/Brand'
@@ -12,28 +12,7 @@ import { Summary } from './Summary'
 import { TransactionTable } from './TransactionTable'
 
 export const Dashboard = (): ReactElement => {
-  const { data, isError } = useTransactionList()
-
-  const summary = useMemo(() => {
-    const summaryInitialValue = {
-      total: 0,
-      deposits: 0,
-      withdraws: 0
-    }
-
-    return data?.reduce((totals, transaction) => {
-      if (transaction.type === 'deposit') {
-        totals.deposits += transaction.amount
-        totals.total += transaction.amount
-      } else {
-        totals.withdraws += transaction.amount
-        totals.total -= transaction.amount
-      }
-      return totals
-    }, summaryInitialValue) ?? summaryInitialValue
-  }, [data])
-
-  const transactions = data ?? []
+  const { transactions, isError, summary } = useGetTransactions()
 
   return (
     <>
