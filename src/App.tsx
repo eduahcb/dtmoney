@@ -1,12 +1,12 @@
 import React, { lazy, ReactElement } from 'react'
 
-import { QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { GlobalStyle } from 'styles/global'
 
 import { Dashboard } from 'components/pages/Dashboard'
 
-import { queryClient } from 'services'
+const queryClient = new QueryClient()
 
 const ReactQueryDevTools = lazy(async () =>
   import('@tanstack/react-query-devtools')

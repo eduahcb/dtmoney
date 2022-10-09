@@ -16,13 +16,13 @@ import TotalImage from 'assets/total.svg'
 type SummaryProps = {
   summary: {
     total: number
-    withdraws: number
-    deposits: number
+    withdraw: number
+    deposit: number
   }
 }
 
 export const Summary = ({ summary }: SummaryProps): ReactElement => {
-  const { deposits, withdraws, total } = summary
+  const { deposit, withdraw, total } = summary
 
   return (
     <StyleSummary>
@@ -31,7 +31,7 @@ export const Summary = ({ summary }: SummaryProps): ReactElement => {
             <p>entradas</p>
             <img src={IncomeImage} alt="" />
           </CardHeader>
-          <strong>{formatNumber(deposits)}</strong>
+          <strong>{formatNumber(deposit)}</strong>
       </Card>
 
       <Card>
@@ -39,7 +39,7 @@ export const Summary = ({ summary }: SummaryProps): ReactElement => {
             <p>saída</p>
             <img src={OutcomeImage} alt="" />
           </CardHeader>
-          <strong>{formatNumber(withdraws)}</strong>
+          <strong>{formatNumber(withdraw)}</strong>
       </Card>
 
       <GreenCard>
