@@ -1,7 +1,10 @@
 import React from 'react'
 import { Response, Server } from 'miragejs'
 
+import Modal from 'react-modal'
+
 import { render, screen, waitFor } from 'test-utils'
+import userEvent from '@testing-library/user-event'
 
 import { fakeApi } from 'fake-api/server'
 
@@ -43,5 +46,25 @@ describe('Dashboard page', () => {
 
     await waitFor(() => expect(screen.queryByText('facilits')).not.toBeInTheDocument())
     await waitFor(() => expect(screen.queryByText('ea')).not.toBeInTheDocument())
+  })
+
+  test('should open modal', async () => {
+    server.get('/transactions', schema => ({
+      transactions: mockedTransactions.slice(0, 2)
+    }))
+
+    render(
+      <div id="root">
+        <Dashboard />
+      </div>
+    )
+
+    Modal.setAppElement('#root')
+
+    const newTransactionButton = screen.getByText('nova transação')
+
+    await userEvent.click(newTransactionButton)
+
+    await screen.findByText('Cadastrar transação')
   })
 })

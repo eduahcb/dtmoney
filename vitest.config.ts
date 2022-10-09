@@ -14,7 +14,9 @@ export default defineConfig({
       reporter: ['text', 'lcov', 'html'],
       exclude: [
         '**/src/**/in-memory/*',
-        '**/src/fake-api/**'
+        '**/src/fake-api/**',
+        '**/src/**/*.test.tsx',
+        '**/src/**/*.test.ts'
       ]
     },
   },
