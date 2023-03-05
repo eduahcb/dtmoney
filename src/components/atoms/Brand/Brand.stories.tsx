@@ -9,6 +9,6 @@ export default {
 
 export const usage = (): ReactElement => (
   <div style={{ backgroundColor: 'var(--blue)', padding: '8px' }}>
-    <Brand />
+  
   </div>
 )
